@@ -26,9 +26,9 @@ spec:
               memory: 256Mi
           env:
             - name: USERPROFILE_API_ENDPOINT
-              value: "userprofile"
+              value: "http://userprofile"
             - name: TRIPS_API_ENDPOINT
-              value: "trips"
+              value: "http://trips"
             - name: BING_MAPS_KEY
               value: ""
 ---
