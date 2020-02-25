@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: userprofile
+  name: trips
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: userprofile
+      app: trips
   template:
     metadata:
       labels:
-        app: userprofile
+        app: trips
     spec:
       nodeSelector:
         "beta.kubernetes.io/os": linux
       containers:
-        - name: userprofile
-          image: registryknt1058.azurecr.io/userprofile:1.0
+        - name: trips
+          image: registryknt1058.azurecr.io/trips:1.1
           resources:
             requests:
               cpu: 100m
@@ -33,13 +33,17 @@ spec:
               value: "sqlserverknt1058.database.windows.net"
             - name: SQL_DBNAME
               value: "mydrivingDB"
+            - name: DEBUG_LOGGING
+              value: "true"
+            - name: OPENAPI_DOCS_URI
+              value: "http://localhost"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: userprofile
+  name: trips
 spec:
   ports:
     - port: 80
   selector:
-    app: userprofile
+    app: trips

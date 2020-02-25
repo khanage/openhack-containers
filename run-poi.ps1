@@ -70,3 +70,12 @@ curl -i -X GET 'http://localhost:8080/api/poi'
 #     -v $env:HOST_FOLDER:/secrets `
 #     -e "ASPNETCORE_ENVIRONMENT=$env:ASPNET_ENV" `
 #     tripinsights/poi:1.0
+
+docker run `
+    -e SQL_USER:sqladminkNt1058 `
+    -e SQL_PASSWORD:qB8jp5Oj5 `
+    -e SQL_SERVER:sqlserverknt1058.database.windows.net `
+    -e SQL_DBNAME:mydrivingDB `
+    -e DEBUG_LOGGING:true `
+    -e OPENAPI_DOCS_URI:http://localhost `
+    registryknt1058.azurecr.io/trips:1.0
