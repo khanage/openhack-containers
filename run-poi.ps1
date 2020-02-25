@@ -40,21 +40,21 @@ $env:ASPNET_ENV = "Local"
 #     -e "SQLDB=mydrivingDB" `
 #     openhack/data-load:v1
 
-# Kill running poi
-docker rm -f $(docker ps -q -f name=poi)
+# # Kill running poi
+# docker rm -f $(docker ps -q -f name=poi)
 
-# Example 1 - Set config values via environment variables
-docker run -d `
-    -p 8080:80 `
-    --name poi `
-    --link $env:SQL_CONTAINER_NAME `
-    -e "SQL_USER=$env:SQL_USERNAME" `
-    -e "SQL_PASSWORD=$env:SQL_PASSWORD" `
-    -e "ASPNETCORE_ENVIRONMENT=$env:ASPNET_ENV" `
-    -e "SQL_SERVER=$env:SQL_CONTAINER_NAME" `
-    tripinsights/poi:1.0
+# # Example 1 - Set config values via environment variables
+# docker run -d `
+#     -p 8080:80 `
+#     --name poi `
+#     --link $env:SQL_CONTAINER_NAME `
+#     -e "SQL_USER=$env:SQL_USERNAME" `
+#     -e "SQL_PASSWORD=$env:SQL_PASSWORD" `
+#     -e "ASPNETCORE_ENVIRONMENT=$env:ASPNET_ENV" `
+#     -e "SQL_SERVER=$env:SQL_CONTAINER_NAME" `
+#     tripinsights/poi:1.0
 
-Start-Sleep -s 2
+# Start-Sleep -s 2
 
 write-host "Hitting health check"
 curl -i -X GET 'http://localhost:8080/api/poi/healthcheck'

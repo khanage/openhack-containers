@@ -1,0 +1,2 @@
+az acr build --registry registryknt1058 -t poi:1.0 -f ./dockerfiles/poi.Dockerfile ./src/poi
+az acr build --registry registryknt1058 -t userprofile:1.0  -f ./dockerfiles/user.Dockerfile ./src/userprofile
